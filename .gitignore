@@ -9,3 +9,5 @@
 .externalNativeBuild
 /app/build
 /app/proguard-rules.pro
+.idea
+/gradle
