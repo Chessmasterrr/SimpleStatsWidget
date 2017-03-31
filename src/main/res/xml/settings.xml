@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="round"
+        android:summary="@string/settings_minutes_summary"
+        android:title="@string/settings_minutes_title" />
+
+    <EditTextPreference
+        android:defaultValue="160"
+        android:key="smsCharCount"
+        android:summary="@string/settings_sms_summary"
+        android:title="@string/settings_sms_title" />
+
+</PreferenceScreen>
