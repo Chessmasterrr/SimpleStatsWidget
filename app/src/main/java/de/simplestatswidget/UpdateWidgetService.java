@@ -143,10 +143,13 @@ public class UpdateWidgetService extends Service {
                 String date_string = c.getString(c.getColumnIndexOrThrow("date"));
                 Date date = new Date(Long.valueOf(date_string));
                 if (date.after(this_month)) {
-                    if (round) {
-                        callduration += (int)Math.round((double)Integer.parseInt(c.getString(c.getColumnIndexOrThrow("duration"))) / 60 + 0.5) * 60;
-                    } else {
-                        callduration += Integer.parseInt(c.getString(c.getColumnIndexOrThrow("duration")));
+                    int duration = Integer.parseInt(c.getString(c.getColumnIndexOrThrow("duration")));
+                    if (duration > 0) {
+                        if (round) {
+                            callduration += (int) Math.round((double) duration / 60 + 0.5) * 60;
+                        } else {
+                            callduration += duration;
+                        }
                     }
                 }
             }
