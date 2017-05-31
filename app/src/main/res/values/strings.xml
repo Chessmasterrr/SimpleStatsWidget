@@ -8,4 +8,6 @@
     <string name="settings_minutes_summary">Should a call be rounded up to full minutes?</string>
     <string name="settings_sms_title">SMS length</string>
     <string name="settings_sms_summary">How many characters belong to a single sms?</string>
+    <string name="sms">SMS:</string>
+    <string name="calls">Calls:</string>
 </resources>
