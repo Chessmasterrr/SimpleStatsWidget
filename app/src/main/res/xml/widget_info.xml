@@ -3,8 +3,8 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:configure="de.simplestatswidget.SettingsActivity"
     android:initialLayout="@layout/widget_layout"
-    android:minHeight="50dp"
-    android:minWidth="70dp"
+    android:minHeight="40dp"
+    android:minWidth="40dp"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="360000"
     android:previewImage="@drawable/preview" />

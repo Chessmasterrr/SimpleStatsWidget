@@ -1,21 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dip"
     android:background="@drawable/widget_shape"
+    android:gravity="center"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/widget_text"
+        android:id="@+id/widget_sms_header"
+        style="@android:style/TextAppearance.Medium"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_layout"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/sms"
+        android:textSize="11sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/sms_text"
         style="@android:style/TextAppearance.Medium"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_margin="5dip"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/loading_text"
-        android:textSize="12sp" />
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/widget_calls_header"
+        style="@android:style/TextAppearance.Medium"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_layout"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/calls"
+        android:textSize="11sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/calls_text"
+        style="@android:style/TextAppearance.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/loading_text"
+        android:textSize="11sp" />
 
 </LinearLayout>

@@ -14,7 +14,9 @@ import android.os.Build;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.provider.CallLog;
+import android.view.View;
 import android.widget.RemoteViews;
+import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -25,21 +27,24 @@ public class UpdateWidgetService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        String text;
-
         // check permissions and get data
+        String smsText;
+        String callText;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ((checkSelfPermission(Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED) &&
             (checkSelfPermission(Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED)) {
-                text = getText();
+                smsText = String.valueOf(getSmsCount());
+                callText = getCalls();
             } else {
-                text = "missing\r\npermissions";
+                smsText = null;
+                callText = null;
             }
         } else {
-            text = getText();
+            smsText = String.valueOf(getSmsCount());
+            callText = getCalls();
         }
 
-        updateWidgets(intent, text);
+        updateWidgets(intent, smsText, callText);
         stopSelf();
 
         super.onStartCommand(intent, flags, startId);
@@ -51,16 +56,7 @@ public class UpdateWidgetService extends Service {
         return null;
     }
 
-    private String getText() {
-        // get data
-        int smscount = getSmsCount();
-        String calls = getCalls();
-
-        // set the text
-        return "SMS: " + String.valueOf(smscount) + "\r\nCalls: " + calls;
-    }
-
-    private void updateWidgets(Intent intent, String text) {
+    private void updateWidgets(Intent intent, String smsText, String callText) {
         // get ids
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
                 .getApplicationContext());
@@ -72,9 +68,20 @@ public class UpdateWidgetService extends Service {
             RemoteViews remoteViews = new RemoteViews(this
                     .getApplicationContext().getPackageName(),
                     R.layout.widget_layout);
-
             // set data
-            remoteViews.setTextViewText(R.id.widget_text, text);
+            if ((smsText == null) && (callText == null)) {
+                remoteViews.setViewVisibility(R.id.widget_sms_header, View.GONE);
+                remoteViews.setTextViewText(R.id.sms_text, "missing");
+                remoteViews.setViewVisibility(R.id.widget_calls_header, View.GONE);
+                remoteViews.setTextViewText(R.id.calls_text, "permissions");
+            } else {
+                if (smsText != null) {
+                    remoteViews.setTextViewText(R.id.sms_text, smsText);
+                }
+                if (callText != null) {
+                    remoteViews.setTextViewText(R.id.calls_text, callText);
+                }
+            }
 
             // register an onClickListener
             Intent clickIntent = new Intent(this.getApplicationContext(),
@@ -87,7 +94,7 @@ public class UpdateWidgetService extends Service {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(
                     getApplicationContext(), 0, clickIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT);
-            remoteViews.setOnClickPendingIntent(R.id.widget_text, pendingIntent);
+            remoteViews.setOnClickPendingIntent(R.id.widget_sms_header, pendingIntent);
             appWidgetManager.updateAppWidget(widgetId, remoteViews);
         }
     }
