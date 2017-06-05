@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleStatsWidget</string>
+    <string name="calls">Anrufe:</string>
+    <string name="loading_text">laden...</string>
+    <string name="savebutton_text">Widget hinzufügen</string>
+    <string name="settings_minutes_summary">Soll ein Anruf auf volle Minuten aufgerundet werden?</string>
+    <string name="settings_minutes_title">Minuten aufrunden</string>
+    <string name="settings_sms_summary">Wie viele Zeichen hat eine einzelne SMS?</string>
+    <string name="settings_sms_title">SMS Länge</string>
+    <string name="sms">SMS:</string>
+</resources>

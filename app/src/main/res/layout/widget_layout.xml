@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/widget_sms_header"
         style="@android:style/TextAppearance.Medium"
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:background="@drawable/curved_layout"
         android:gravity="center_horizontal|center_vertical"
@@ -31,7 +31,7 @@
     <TextView
         android:id="@+id/widget_calls_header"
         style="@android:style/TextAppearance.Medium"
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:background="@drawable/curved_layout"
         android:gravity="center_horizontal|center_vertical"
