@@ -16,7 +16,6 @@ import android.preference.PreferenceManager;
 import android.provider.CallLog;
 import android.view.View;
 import android.widget.RemoteViews;
-import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -32,7 +31,7 @@ public class UpdateWidgetService extends Service {
         String callText;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ((checkSelfPermission(Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED) &&
-            (checkSelfPermission(Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED)) {
+                    (checkSelfPermission(Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED)) {
                 smsText = String.valueOf(getSmsCount());
                 callText = getCalls();
             } else {
@@ -121,7 +120,7 @@ public class UpdateWidgetService extends Service {
                 Date date = new Date(Long.valueOf(date_string));
                 if (date.after(this_month)) {
                     String message = c.getString(c.getColumnIndexOrThrow("body"));
-                    smscount += (int)Math.round((double)message.length() / smsCharCount + 0.5);
+                    smscount += (int) Math.round((double) message.length() / smsCharCount + 0.5);
                 }
             }
             c.close();

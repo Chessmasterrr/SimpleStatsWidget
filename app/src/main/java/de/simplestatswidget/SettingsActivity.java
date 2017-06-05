@@ -29,10 +29,10 @@ public class SettingsActivity extends Activity {
         // get permissions if not granted
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[] {Manifest.permission.READ_SMS}, 142);
+                requestPermissions(new String[]{Manifest.permission.READ_SMS}, 142);
             }
             if (checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[] {Manifest.permission.READ_CALL_LOG}, 142);
+                requestPermissions(new String[]{Manifest.permission.READ_CALL_LOG}, 142);
             }
         }
 
