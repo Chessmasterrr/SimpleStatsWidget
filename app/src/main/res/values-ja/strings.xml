@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">SimpleStatsWidget</string>
+    <string name="savebutton_text">ウィジェットを追加</string>
+    <string name="loading_text">ロード中…</string>
+    <string name="settings_minutes_title">分数の切り上げ</string>
+    <string name="settings_minutes_summary">通話を 1 分単位で切り上げますか?</string>
+    <string name="settings_sms_title">SMS の長さ</string>
+    <string name="settings_sms_summary">1 回の SMS に属する文字数は?</string>
+    <string name="sms">SMS:</string>
+    <string name="calls">通話:</string>
+</resources>
