@@ -67,7 +67,7 @@ public class UpdateWidgetService extends Service {
             RemoteViews remoteViews = new RemoteViews(this
                     .getApplicationContext().getPackageName(),
                     R.layout.widget_layout);
-            // set data
+            // set data4
             if ((smsText == null) && (callText == null)) {
                 remoteViews.setViewVisibility(R.id.widget_sms_header, View.GONE);
                 remoteViews.setTextViewText(R.id.sms_text, "missing");
@@ -93,7 +93,7 @@ public class UpdateWidgetService extends Service {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(
                     getApplicationContext(), 0, clickIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT);
-            remoteViews.setOnClickPendingIntent(R.id.widget_sms_header, pendingIntent);
+            remoteViews.setOnClickPendingIntent(R.id.widget_layout, pendingIntent);
             appWidgetManager.updateAppWidget(widgetId, remoteViews);
         }
     }
