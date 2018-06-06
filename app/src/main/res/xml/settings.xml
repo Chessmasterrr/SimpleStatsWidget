@@ -4,6 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditTextPreference
+        android:key="phonenumber"
+        android:summary="@string/settings_phonenumber_summary"
+        android:title="@string/settings_phonenumber_title" />
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="round"

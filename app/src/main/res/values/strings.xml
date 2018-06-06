@@ -10,4 +10,6 @@
     <string name="settings_sms_summary">How many characters belong to a single sms?</string>
     <string name="sms">SMS:</string>
     <string name="calls">Calls:</string>
+    <string name="settings_phonenumber_summary">For which number are the calls and SMS counted?</string>
+    <string name="settings_phonenumber_title">Phonenumber</string>
 </resources>

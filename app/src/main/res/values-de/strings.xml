@@ -9,4 +9,6 @@
     <string name="settings_sms_summary">Wie viele Zeichen hat eine einzelne SMS?</string>
     <string name="settings_sms_title">SMS Länge</string>
     <string name="sms">SMS:</string>
+    <string name="settings_phonenumber_summary">Für welche Nummer werden die Anrufe und SMS gezählt?</string>
+    <string name="settings_phonenumber_title">Telefonnummer</string>
 </resources>
