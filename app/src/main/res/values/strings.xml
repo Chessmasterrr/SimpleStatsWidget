@@ -10,4 +10,9 @@
     <string name="settings_sms_summary">How many characters belong to a single sms?</string>
     <string name="sms">SMS:</string>
     <string name="calls">Calls:</string>
+    <string name="settings_smsMax_title">maximum SMS</string>
+    <string name="settings_smsMax_summary">How many SMS are allowed per month?</string>
+    <string name="settings_callMax_title">minutes included</string>
+    <string name="settings_callMax_summary">How many calls are allowed per month? (in minutes)</string>
+    <string name="settings_countReverse">Show remaining minutes/SMS</string>
 </resources>

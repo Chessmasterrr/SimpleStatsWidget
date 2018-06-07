@@ -9,4 +9,9 @@
     <string name="settings_sms_summary">Wie viele Zeichen hat eine einzelne SMS?</string>
     <string name="settings_sms_title">SMS Länge</string>
     <string name="sms">SMS:</string>
+    <string name="settings_smsMax_title">maximale SMS</string>
+    <string name="settings_smsMax_summary">Wie viele SMS sind pro Monat erlaubt?</string>
+    <string name="settings_callMax_title">Inklusivminuten</string>
+    <string name="settings_callMax_summary">Wie viele Anrufe sind pro Monat erlaubt? (in Minuten)</string>
+        <string name="settings_countReverse">Verbleibende Minuten/SMS anzeigen</string>
 </resources>

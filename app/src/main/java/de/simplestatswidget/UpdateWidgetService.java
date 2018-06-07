@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
@@ -40,9 +41,10 @@ public class UpdateWidgetService extends Service {
             }
         } else {
             smsText = String.valueOf(getSmsCount());
-            callText = getCalls();
+            callText= getCalls();
         }
 
+        // update widgets with new data
         updateWidgets(intent, smsText, callText);
         stopSelf();
 
@@ -67,7 +69,7 @@ public class UpdateWidgetService extends Service {
             RemoteViews remoteViews = new RemoteViews(this
                     .getApplicationContext().getPackageName(),
                     R.layout.widget_layout);
-            // set data4
+            // set data
             if ((smsText == null) && (callText == null)) {
                 remoteViews.setViewVisibility(R.id.widget_sms_header, View.GONE);
                 remoteViews.setTextViewText(R.id.sms_text, "missing");
@@ -75,9 +77,21 @@ public class UpdateWidgetService extends Service {
                 remoteViews.setTextViewText(R.id.calls_text, "permissions");
             } else {
                 if (smsText != null) {
+                    // set text color
+                    if (smsText.startsWith("-")) {
+                        remoteViews.setTextColor(R.id.sms_text, Color.RED);
+                    } else {
+                        remoteViews.setTextColor(R.id.sms_text, Color.WHITE);
+                    }
                     remoteViews.setTextViewText(R.id.sms_text, smsText);
                 }
                 if (callText != null) {
+                    // set text color
+                    if (callText.startsWith("- ")) {
+                        remoteViews.setTextColor(R.id.calls_text, Color.RED);
+                    } else {
+                        remoteViews.setTextColor(R.id.calls_text, Color.WHITE);
+                    }
                     remoteViews.setTextViewText(R.id.calls_text, callText);
                 }
             }
@@ -126,6 +140,14 @@ public class UpdateWidgetService extends Service {
             c.close();
         }
 
+        // count sms reverse if checked in preferences
+        boolean countReverse = prefs.getBoolean("countReverse", false);
+        if (countReverse) {
+            String smsMaxString = prefs.getString("smsMax", "0");
+            int smsMax = Integer.parseInt(smsMaxString);
+            smscount = smsMax - smscount;
+        }
+
         return smscount;
     }
 
@@ -162,6 +184,19 @@ public class UpdateWidgetService extends Service {
             c.close();
         }
 
+        // count calls reverse if checked in preferences
+        boolean countReverse = prefs.getBoolean("countReverse", false);
+        boolean negative = false;
+        if (countReverse) {
+            String callMaxString = prefs.getString("callMax", "0");
+            int callMax = Integer.parseInt(callMaxString);
+            callduration = callMax*60 - callduration;
+            if (callduration < 0) {
+                negative = true;
+                callduration = callduration * -1;
+            }
+        }
+
         // Set the text
         int minutes = callduration / 60;
         int seconds = callduration % 60;
@@ -172,6 +207,9 @@ public class UpdateWidgetService extends Service {
         }
         if (seconds < 10) {
             secondsString = "0" + secondsString;
+        }
+        if (negative) {
+            minutesString = "- " + minutesString;
         }
 
         return minutesString + ":" + secondsString;

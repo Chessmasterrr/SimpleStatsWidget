@@ -4,6 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="countReverse"
+        android:title="@string/settings_countReverse" />
+
+    <EditTextPreference
+        android:defaultValue="100"
+        android:key="callMax"
+        android:enabled="false"
+        android:inputType="number"
+        android:summary="@string/settings_callMax_summary"
+        android:title="@string/settings_callMax_title" />
+
+    <EditTextPreference
+        android:defaultValue="100"
+        android:key="smsMax"
+        android:enabled="false"
+        android:inputType="number"
+        android:summary="@string/settings_smsMax_summary"
+        android:title="@string/settings_smsMax_title" />
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="round"
@@ -13,6 +34,7 @@
     <EditTextPreference
         android:defaultValue="160"
         android:key="smsCharCount"
+        android:inputType="number"
         android:summary="@string/settings_sms_summary"
         android:title="@string/settings_sms_title" />
 
