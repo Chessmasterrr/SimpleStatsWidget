@@ -8,6 +8,20 @@ import android.preference.SwitchPreference;
 
 public class SettingsFragment extends PreferenceFragment {
 
+    // listener to set the edit preferences
+    private final Preference.OnPreferenceClickListener pref_click = new Preference.OnPreferenceClickListener() {
+        public boolean onPreferenceClick(Preference preference) {
+            SwitchPreference switchPref = (SwitchPreference) findPreference("countReverse");
+            EditTextPreference callMax = (EditTextPreference) findPreference("callMax");
+            EditTextPreference smsMax = (EditTextPreference) findPreference("smsMax");
+
+            Boolean checked = switchPref.isChecked();
+            callMax.setEnabled(checked);
+            smsMax.setEnabled(checked);
+            return true;
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,18 +39,4 @@ public class SettingsFragment extends PreferenceFragment {
         callMax.setEnabled(checked);
         smsMax.setEnabled(checked);
     }
-
-    // listener to set the edit preferences
-    private Preference.OnPreferenceClickListener pref_click = new Preference.OnPreferenceClickListener() {
-        public boolean onPreferenceClick(Preference preference) {
-            SwitchPreference switchPref = (SwitchPreference) findPreference("countReverse");
-            EditTextPreference callMax = (EditTextPreference) findPreference("callMax");
-            EditTextPreference smsMax = (EditTextPreference) findPreference("smsMax");
-
-            Boolean checked = switchPref.isChecked();
-            callMax.setEnabled(checked);
-            smsMax.setEnabled(checked);
-            return true;
-        }
-    };
 }

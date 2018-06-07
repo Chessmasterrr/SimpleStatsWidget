@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">SimpleStatsWidget</string>
     <string name="calls">Anrufe:</string>
-    <string name="loading_text">laden...</string>
+    <string name="loading_text">laden…</string>
     <string name="savebutton_text">Widget hinzufügen</string>
     <string name="settings_minutes_summary">Soll ein Anruf auf volle Minuten aufgerundet werden?</string>
     <string name="settings_minutes_title">Minuten aufrunden</string>
@@ -13,5 +13,5 @@
     <string name="settings_smsMax_summary">Wie viele SMS sind pro Monat erlaubt?</string>
     <string name="settings_callMax_title">Inklusivminuten</string>
     <string name="settings_callMax_summary">Wie viele Anrufe sind pro Monat erlaubt? (in Minuten)</string>
-        <string name="settings_countReverse">Verbleibende Minuten/SMS anzeigen</string>
+    <string name="settings_countReverse">Verbleibende Minuten/SMS anzeigen</string>
 </resources>

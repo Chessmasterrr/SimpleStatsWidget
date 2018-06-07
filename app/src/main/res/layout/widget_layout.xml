@@ -9,8 +9,8 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_height="0dp"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -23,7 +23,7 @@
             android:background="@drawable/curved_layout"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/sms"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
@@ -33,13 +33,13 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/loading_text"
-            android:textSize="11sp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="0dp"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -52,7 +52,7 @@
             android:background="@drawable/curved_layout"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/calls"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/loading_text"
-            android:textSize="11sp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 

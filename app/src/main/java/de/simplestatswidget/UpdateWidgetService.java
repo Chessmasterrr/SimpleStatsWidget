@@ -41,7 +41,7 @@ public class UpdateWidgetService extends Service {
             }
         } else {
             smsText = String.valueOf(getSmsCount());
-            callText= getCalls();
+            callText = getCalls();
         }
 
         // update widgets with new data
@@ -190,7 +190,7 @@ public class UpdateWidgetService extends Service {
         if (countReverse) {
             String callMaxString = prefs.getString("callMax", "0");
             int callMax = Integer.parseInt(callMaxString);
-            callduration = callMax*60 - callduration;
+            callduration = callMax * 60 - callduration;
             if (callduration < 0) {
                 negative = true;
                 callduration = callduration * -1;

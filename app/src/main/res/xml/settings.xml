@@ -11,17 +11,17 @@
 
     <EditTextPreference
         android:defaultValue="100"
-        android:key="callMax"
         android:enabled="false"
         android:inputType="number"
+        android:key="callMax"
         android:summary="@string/settings_callMax_summary"
         android:title="@string/settings_callMax_title" />
 
     <EditTextPreference
         android:defaultValue="100"
-        android:key="smsMax"
         android:enabled="false"
         android:inputType="number"
+        android:key="smsMax"
         android:summary="@string/settings_smsMax_summary"
         android:title="@string/settings_smsMax_title" />
 
@@ -33,8 +33,8 @@
 
     <EditTextPreference
         android:defaultValue="160"
-        android:key="smsCharCount"
         android:inputType="number"
+        android:key="smsCharCount"
         android:summary="@string/settings_sms_summary"
         android:title="@string/settings_sms_title" />
 
