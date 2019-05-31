@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SimpleStatsWidget</string>
     <string name="savebutton_text">Add Widget</string>
     <string name="loading_text">loading…</string>
@@ -10,9 +10,9 @@
     <string name="settings_sms_summary">How many characters belong to a single sms?</string>
     <string name="sms">SMS:</string>
     <string name="calls">Calls:</string>
-    <string name="settings_smsMax_title">maximum SMS</string>
-    <string name="settings_smsMax_summary">How many SMS are allowed per month?</string>
-    <string name="settings_callMax_title">minutes included</string>
-    <string name="settings_callMax_summary">How many calls are allowed per month? (in minutes)</string>
-    <string name="settings_countReverse">Show remaining minutes/SMS</string>
+    <string name="settings_smsMax_title" tools:ignore="MissingTranslation">maximum SMS</string>
+    <string name="settings_smsMax_summary" tools:ignore="MissingTranslation">How many SMS are allowed per month?</string>
+    <string name="settings_callMax_title" tools:ignore="MissingTranslation">minutes included</string>
+    <string name="settings_callMax_summary" tools:ignore="MissingTranslation">How many calls are allowed per month? (in minutes)</string>
+    <string name="settings_countReverse" tools:ignore="MissingTranslation">Show remaining minutes/SMS</string>
 </resources>
