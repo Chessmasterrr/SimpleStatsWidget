@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.PendingIntent
 import android.app.Service
 import android.appwidget.AppWidgetManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -18,13 +19,18 @@ import android.widget.RemoteViews
 import java.util.Calendar
 import java.util.Date
 import java.util.GregorianCalendar
+import android.content.ComponentName
+
+
 
 class UpdateWidgetService : Service() {
+
+    private var mAppWidgetId: Int = 0 // widget id
 
     private val smsCount: Int
         get() {
             // get settings
-            val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+            val prefs = applicationContext.getSharedPreferences("prefs_${this.mAppWidgetId}", Context.MODE_PRIVATE)
             var smsCharCountString = prefs.getString("smsCharCount", "160")
             if (smsCharCountString == null) {
                 smsCharCountString = "160"
@@ -67,7 +73,7 @@ class UpdateWidgetService : Service() {
     private val calls: String
         get() {
             // get settings
-            val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+            val prefs = applicationContext.getSharedPreferences("prefs_${this.mAppWidgetId}", Context.MODE_PRIVATE)
             val round = prefs.getBoolean("round", false)
             val calendar = GregorianCalendar()
             // set a date for this month
@@ -129,6 +135,12 @@ class UpdateWidgetService : Service() {
         }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        // get widget id
+        val widgetManager = AppWidgetManager.getInstance(this)
+        val widgetComponent = ComponentName(this, SimpleStatsWidgetProvider.class)
+        val widgetIds = widgetManager.getAppWidgetIds(widgetComponent)
+        val test = widgetIds[0]
+        this.mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
 
         // check permissions and get data
         val smsText: String?

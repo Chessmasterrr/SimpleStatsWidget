@@ -1,5 +1,6 @@
 package de.simplestatswidget
 
+import android.appwidget.AppWidgetManager
 import android.os.Bundle
 import android.preference.EditTextPreference
 import android.preference.Preference
@@ -22,6 +23,10 @@ class SettingsFragment : PreferenceFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // set preference file
+        val widgetId = (activity as SettingsActivity).mAppWidgetId
+        preferenceManager.sharedPreferencesName = "prefs_$widgetId"
 
         addPreferencesFromResource(R.xml.settings)
 

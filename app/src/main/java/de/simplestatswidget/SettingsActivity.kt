@@ -11,12 +11,19 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.RemoteViews
 
+// ToDo
+// https://developer.android.com/guide/topics/appwidgets
+
+
 class SettingsActivity : Activity() {
 
     var mAppWidgetId: Int = 0 // widget id
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // get widget id
+        this.mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
 
         setContentView(R.layout.settings_layout)
 
@@ -35,14 +42,6 @@ class SettingsActivity : Activity() {
                     requestPermissions(arrayOf(Manifest.permission.READ_CALL_LOG), 142)
                 }
             }
-        }
-
-        // get widget id
-        val extras = intent.extras
-        if (extras != null) {
-            mAppWidgetId = extras.getInt(
-                    AppWidgetManager.EXTRA_APPWIDGET_ID,
-                    AppWidgetManager.INVALID_APPWIDGET_ID)
         }
 
         // create widget on save button click
